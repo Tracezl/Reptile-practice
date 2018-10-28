@@ -1,0 +1,77 @@
+                        </div>
+                            <div class="trigger">
+
+                            </div>
+                            <div class="submit">
+                                <p><input type="checkbox" id="J_Mdelete"> 不再记住密码</p>
+                                <button type="submit"  tabindex="5"
+                                        id="J_SubmitMiser">登 录</button>
+                            </div>
+                            <div class="other-login">
+                                <a href="" title="使用其他账户登录" class="light-link" id="J_Miser2Static">使用其他账户登录</a>
+                            </div>
+                        </form>
+          </div>
+		
+		<!--标准登录框-->
+		<div class="static-form " id="J_StaticForm">
+			<div class="login-title">
+			
+				
+				密码登录
+			
+			</div>
+		
+			<form action="/member/login.jhtml?redirectURL=http%3A%2F%2Fs.taobao.com%2Fsearch%3Fq%3D%E4%B9%A6%E5%8C%85"  method="post" id="J_Form">
+		    <div id="J_Message"
+				style="display:none;"
+				class="login-msg error">
+				<i class="iconfont">&#xe604;</i>
+				
+			<p class="error"></p>
+			
+		     </div>
+				<!-- 手机号登录 -->
+				
+
+
+				<div class="field ph-hide username-field ">
+					<label for="TPL_username_1"> <i class="iconfont" title="会员名">&#xe601;</i></label>
+					<span class="ph-label">会员名/邮箱/手机号</span> <input type="text"
+																			 name="TPL_username" id="TPL_username_1"
+						class="login-text J_UserName"
+																			 value=""
+																			 maxlength="32" tabindex="1" aria-label="会员名/邮箱/手机号"/>
+				</div>
+
+			<div class="field pwd-field">
+				<label id="password-label" for="TPL_password_1"><i
+					class="icon iconfont" title="登录密码">&#xe600;</i></label> 
+				<span id="J_StandardPwd">
+				   <input type="password" name="TPL_password"
+					id="TPL_password_1" class="login-text" maxlength="40" tabindex="2"
+					autocomplete="off" aria-label="登录密码"/>
+				</span> 
+			</div>
+			
+			<!-- use new slide checkcode -->
+			<div id="nocaptcha" class="nc-container tb-login"></div>
+			
+
+			
+			<div class="submit">
+				
+				<input id="J_NcoSig" name="ncoSig" type="hidden" /> 
+				<input id="J_NcoSessionid" name="ncoSessionid" type="hidden" /> 
+				<input id="J_NcoToken" type="hidden" name="ncoToken"
+					value="0d97e4752df69775a4745da152d4cc1f7ff52882" />
+				<input id="J_NcoShow" type="hidden" name="slideCodeShow" value="false" /> 
+				
+
+				<input type="hidden" name="useMobile" value="false"/>
+				<input type="hidden" id="J_lang" name="lang" value="zh_CN"/>
+				<input type="hidden" name="loginsite" value="0"
+					id="J_loginsite" /> <input type="hidden" name="newlogin" value="" />
+				
+				<input type="hidden" id="J_TPL_redirect_url" name="TPL_redirect_url"
+					value="http://
