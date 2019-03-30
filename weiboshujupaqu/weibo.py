@@ -14,10 +14,6 @@ import time
 import random
 import codecs
 #import pandas as pd
-#from snownlp import SnowNLP
-
-
-# encoding=utf-8
 """ User-Agents """
 agents = [
     "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; AcooBrowser; .NET CLR 1.1.4322; .NET CLR 2.0.50727)",
@@ -58,7 +54,7 @@ agents = [
   ]
 
 cookies = [
-        "_T_WM=2d9f4078d7c96e3e03b846ce462ad914; WEIBOCN_FROM=1110006030; WEIBOCN_WM=9006_2001; SSOLoginState=1542473000; ALF=1545065000; SCF=AuRPFg1exQJo3_95jd0nKBJcPpNFpnmPSWxk7yFfmX-HiirTwF-gCwn9wJnK5yfMcoJiJvyM80ZICSbp6Kh5hyU.; SUB=_2A2529DV4DeRhGeNM6VQR9CzKyj2IHXVSF1swrDV6PUNbktAKLVf2kW1NSZy_748A_f_67yrFtYWR4ojcyWKGwt91; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9WFO_XWaCGks8iqelhBrWnwb5JpX5KMhUgL.Fo-Eeoq7ShzceK22dJLoIpMLxKnLBo-LBo-LxKMLBKeL122ReKnpSntt; SUHB=0IIV0N6KwhgfTZ; MLOGIN=1; M_WEIBOCN_PARAMS=sourceType%3Dqq%26from%3D108B195010%26featurecode%3Dnewtitle%26oid%3D4296083775037324%26luicode%3D20000061%26lfid%3D4296083775037324"
+        "_T_WM=2d9f4078d7c96e3e03b846ce462ad914; WEIBOCN_FROM=1110006030; WEIBOCN_WM=9006_2001; ALF=1545076284; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9W5CI3CaXd9Efib2TZ3-CZMW5JpX5K-hUgL.FoqN1h-cSK-Xeh22dJLoIp7LxKML1KBLBKnLxKqL1hnLBoMcS0nfSo-fSh5p; SCF=AuRPFg1exQJo3_95jd0nKBJcPpNFpnmPSWxk7yFfmX-HnB6yU1gjcJxpa6dMo707--EofhCO00JIDOXlgmH3JmA.; SUB=_2A2529AHyDeRhGeBJ41cX9SvIyz2IHXVSFq-6rDV6PUJbktANLU_CkW1NRiBrcnqHU3FIWWypiRGG1Jmkkrd963Kc; SUHB=0pHh6v8nYaqlVR; SSOLoginState=1542484386; MLOGIN=1; M_WEIBOCN_PARAMS=oid%3D4296083775037324%26luicode%3D20000061%26lfid%3D4296083775037324%26uicode%3D20000061%26fid%3D4296083775037324"
 #"SINAGLOBAL=6061592354656.324.1489207743838; un=18240343109; TC-V5-G0=52dad2141fc02c292fc30606953e43ef; wb_cusLike_2140170130=N; _s_tentry=login.sina.com.cn; Apache=5393750164131.485.1511882292296; ULV=1511882292314:55:14:7:5393750164131.485.1511882292296:1511789163477; TC-Page-G0=1e758cd0025b6b0d876f76c087f85f2c; TC-Ugrow-G0=e66b2e50a7e7f417f6cc12eec600f517; login_sid_t=7cbd20d7f5c121ef83f50e3b28a77ed7; cross_origin_proto=SSL; WBStorage=82ca67f06fa80da0|undefined; UOR=,,login.sina.com.cn; WBtopGlobal_register_version=573631b425a602e8; crossidccode=CODE-tc-1EjHEO-2SNIe8-y00Hd0Yq79mGw3l1975ae; SSOLoginState=1511882345; SCF=AvFiX3-W7ubLmZwXrMhoZgCv_3ZXikK7fhjlPKRLjog0OIIQzSqq7xsdv-_GhEe8XWdkHikzsFJyqtvqej6OkaM.; SUB=_2A253GQ45DeThGeRP71IQ9y7NyDyIHXVUb3jxrDV8PUNbmtAKLWrSkW9NTjfYoWTfrO0PkXSICRzowbfjExbQidve; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9WFaVAdSwLmvOo1VRiSlRa3q5JpX5KzhUgL.FozpSh5pS05pe052dJLoIfMLxKBLBonL122LxKnLB.qL1-z_i--fiKyFi-2Xi--fi-2fiKyFTCH8SFHF1C-4eFH81FHWSE-RebH8SE-4BC-RSFH8SFHFBbHWeEH8SEHWeF-RegUDMJ7t; SUHB=04W-u1HCo6armH; ALF=1543418344; wvr=6",
 #"SINAGLOBAL=6061592354656.324.1489207743838; TC-V5-G0=52dad2141fc02c292fc30606953e43ef; wb_cusLike_2140170130=N; _s_tentry=login.sina.com.cn; Apache=5393750164131.485.1511882292296; ULV=1511882292314:55:14:7:5393750164131.485.1511882292296:1511789163477; TC-Page-G0=1e758cd0025b6b0d876f76c087f85f2c; TC-Ugrow-G0=e66b2e50a7e7f417f6cc12eec600f517; login_sid_t=7cbd20d7f5c121ef83f50e3b28a77ed7; WBStorage=82ca67f06fa80da0|undefined; WBtopGlobal_register_version=573631b425a602e8; crossidccode=CODE-tc-1EjHEO-2SNIe8-y00Hd0Yq79mGw3l1975ae; cross_origin_proto=SSL; UOR=,,login.sina.com.cn; SSOLoginState=1511882443; SCF=AvFiX3-W7ubLmZwXrMhoZgCv_3ZXikK7fhjlPKRLjog0-14gBQox9IhSK8vZVaZYWsLxUaOWNkudAR9iT6NFJkg.; SUB=_2A253GQ6bDeRhGeNH6FsZ8CjLzj2IHXVUb2dTrDV8PUNbmtAKLWTjkW9NSqHIBUvGapKd6-MQhJTejk3w_ivUUNXZ; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9W5gYdHWIHRmedh9Nyrij6XN5JpX5K2hUgL.Fo-4e0.RehqNSK22dJLoI0.LxK-L122LB.qLxK-LB.BLBKqLxKMLB.2LBKzLxKnL12-L122LxK.LBK2L12qLxKqLBKqL1KHiqc-t; SUHB=0auwlDzUYulNGs; ALF=1543418442; un=13728408992; wvr=6",
 #"SINAGLOBAL=6061592354656.324.1489207743838; TC-V5-G0=52dad2141fc02c292fc30606953e43ef; wb_cusLike_2140170130=N; _s_tentry=login.sina.com.cn; Apache=5393750164131.485.1511882292296; ULV=1511882292314:55:14:7:5393750164131.485.1511882292296:1511789163477; TC-Page-G0=1e758cd0025b6b0d876f76c087f85f2c; TC-Ugrow-G0=e66b2e50a7e7f417f6cc12eec600f517; login_sid_t=7cbd20d7f5c121ef83f50e3b28a77ed7; WBStorage=82ca67f06fa80da0|undefined; WBtopGlobal_register_version=573631b425a602e8; crossidccode=CODE-tc-1EjHEO-2SNIe8-y00Hd0Yq79mGw3l1975ae; wb_cusLike_5939806751=N; cross_origin_proto=SSL; UOR=,,login.sina.com.cn; SSOLoginState=1511882512; SCF=AvFiX3-W7ubLmZwXrMhoZgCv_3ZXikK7fhjlPKRLjog089iFKjxeT1Oc6cbJkkqgWrnQAuMVukRrJy3898cKIb8.; SUB=_2A253GQ9ADeRhGeNH6FsZ8ynJzz6IHXVUb2eIrDV8PUNbmtAKLVWhkW9NSqG4DzNeLkyPCmJIKq6bXfKXpSRCPLqO; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9W50J-rDh2D6-QEqNOZ2NddF5JpX5K2hUgL.Fo-4e0.Re0MfShz2dJLoIEeLxK-LB--L1KeLxK-L1hqLBoMLxKnL1K5LBo8IC281xEfIg5tt; SUHB=0gHiPrbPWNJvao; ALF=1543418511; un=15614187608; wvr=6",
@@ -83,8 +79,6 @@ def writeintxt(dict,filename):
             output.write(l+'\n')
                      
     output.close()
-
-
 user_agent = random.choice(agents)
 cookies = random.choice(cookies)
 headers = {
@@ -103,15 +97,15 @@ base_url = 'https://m.weibo.cn/api/comments/show?id='
 
 weibo_id_list = readfromtxt('weibo_id.txt').split('\n')
 result_dict = {}
+num=0
 for weibo_id in weibo_id_list:
-    try:
-        
+    try:      
         i=1
         SIGN = 1
         while(SIGN):
             url = base_url + str(weibo_id) + '&page=' + str(i)
             resp = requests.get(str(url), headers=headers, timeout=200)
-            filename=str(weibo_id)+'.txt'
+            filename='all'+'.txt'
             time.sleep(random.randint(2,3))
             jsondata = resp.json()
             if jsondata.get('ok') == 1:
@@ -136,9 +130,9 @@ for weibo_id in weibo_id_list:
                     record_list.append(text)
                     #print(record_list)
                 with open(filename, 'a', encoding='utf-8') as f:
+                    num+=len(record_list)
                     for l in record_list:
-                        f.write( str(l) + '\n' )
-                    
+                        f.write( str(l) + '\n' )                   
             else:
                 SIGN = 0           
             #SIGN = 0
@@ -146,10 +140,12 @@ for weibo_id in weibo_id_list:
             #time.sleep(random.randint(2,3))
     except:
         #print(traceback.print_exc())
-        result_dict[weibo_id]=record_list
+        #result_dict[weibo_id]=record_list
         print(weibo_id)
         print('*'*100)
         pass
+with open('all.txt', 'a', encoding='utf-8') as f:
+    f.write( str(num) + '\n' )
 print("ok")
 #print(result_dict)
 #writeintxt(result_dict,'comment1.txt')

@@ -71,14 +71,15 @@ headers = {
     'Accept' : 'application/json, text/plain, */*',
     'Accept-Language' : 'zh-CN,zh;q=0.8',
     'Accept-Encoding' : 'gzip, deflate, sdch, br',
-    'Referer' : 'https://m.weibo.cn/u/4296083775037324',
+    'Referer' : 'https://m.weibo.cn/u/4296885143328658',
     'Cookie' : cookies,
     'Connection' : 'keep-alive',
 }
 
 
 base_url = 'https://m.weibo.cn/api/comments/show?id='
-weibo_id='4296083775037324'  
+weibo_id='4296885143328658'  
+num=0
 try:
     
     i=1
@@ -111,10 +112,13 @@ try:
                 record_list.append(text)
                 #print(record_list)
             with open(filename, 'a', encoding='utf-8') as f:
+                num+=len(record_list)
                 for l in record_list:
                     f.write( str(l) + '\n' )
                 
         else:
+            with open(filename, 'a', encoding='utf-8') as f:
+                    f.write('\n'+ str(num) + '\n' )   
             SIGN = 0           
         #SIGN = 0
         #result_dict[weibo_id]=record_list
@@ -124,4 +128,5 @@ except:
     print(weibo_id)
     print('*'*100)
     pass
+print(num)
 print("ok")
