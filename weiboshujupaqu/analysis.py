@@ -7,7 +7,7 @@ Created on Sun Nov 18 12:06:50 2018
 
 #CalThreeKindomsVq.py
 import jieba
-txt=open("all.txt","r",encoding="utf-8").read()
+txt=open("comment.txt","r",encoding="utf-8").read()
 #加载过滤词汇
 def stopwordslist(filepath):  
     stopwords = [line.strip() for line in open(filepath, 'r', encoding='utf-8').readlines()]  
@@ -37,7 +37,7 @@ for word in words:
 items=list(counts.items())
 items.sort(key=lambda x:x[1],reverse=True)
 with open("result.txt", 'a', encoding='utf-8') as f:
-    for i in range(50):
+    for i in range(100):
          word,count=items[i]
          print("{0:<10}{1:<10}{2:<5}".format(i+1,word,count))
          f.write( "{0:<10}{1:<10}{2:<5}".format(i+1,word,count) + '\n' )
